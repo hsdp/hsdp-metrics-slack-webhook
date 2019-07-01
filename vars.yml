@@ -1,0 +1,5 @@
+instances: 1
+name: <app-name>
+docker_image: <repo/image:tag>
+external_domain: <external_domain>
+slack_webhook: <your-slack-webhook>
