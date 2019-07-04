@@ -16,7 +16,7 @@ def hook_to_hook():
     for alert in request.json['alerts']:
         message = []
         message.append(' '.join(['alert name:', alert['labels']['alertname']]))
-        message.append(' '.join(['service instance name:', alert['labels']['hsdp_instance_name']]))
+        message.append(' '.join(['service instance name:', alert['labels']['application']]))
         message.append(' '.join(['severity:', alert['labels']['severity']]))
         message.append(' '.join(['status:', alert['status']]))
         message.append(' '.join(['description:', alert['annotations']['description']]))
