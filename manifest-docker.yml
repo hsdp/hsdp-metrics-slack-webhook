@@ -11,7 +11,5 @@ applications:
   instances: ((instances))
   docker:
     image: ((docker_image))
-  routes:
-  - route: ((name)).((external_domain))
   env:
     SLACK_WEBHOOK: ((slack_webhook))

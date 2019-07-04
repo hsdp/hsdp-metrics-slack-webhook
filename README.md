@@ -40,11 +40,15 @@ Deploying as a buildpack app to cf
 ----------------------------------
 
 Update the vars.yml file with your deployment specific values.  
-`cf push -f mainfest.yml --vars-file ./vars.yml`  
+`cf push -f ./mainfest.yml --vars-file ./vars.yml`  
 
 
 Deploying as a docker app to cf
 -------------------------------
 
 Update the vars.yml file with your deployment specific values.  
-`cf push -f manifest-docker.yml --vars-file ./vars.yml`
+`cf push -f ./manifest-docker.yml --vars-file ./vars.yml`
+
+Note: be sure to add 
+`    username: <docker_username>` 
+under docker section and export CF_DOCKER_PASSWORD environment variable.
