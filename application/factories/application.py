@@ -9,7 +9,7 @@ def create_application():
     app.config.from_object(config)
     app.logger.removeHandler(default_handler)
 
-    from controllers.webhook_proxy import webhook_proxy
+    from controllers.hooker import webhook_proxy
     app.register_blueprint(webhook_proxy)
 
     simple_errors = (400, 401, 404, 403)
