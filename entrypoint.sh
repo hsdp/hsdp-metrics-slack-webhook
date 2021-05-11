@@ -1,7 +1,7 @@
 #!/bin/sh
 
 if [ -z "$PORT" ]; then
-    PORT=8080
+    PORT=8000
 fi
 
 exec uwsgi \

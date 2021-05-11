@@ -36,19 +36,10 @@ This should be the only file you need to edit before deploying the appication.
 | slack_webhook   | The slack webhook to forward the alert to.                                |
 
 
-Deploying as a buildpack app to cf
-----------------------------------
-
-Update the vars.yml file with your deployment specific values.  
-`cf push -f ./mainfest.yml --vars-file ./vars.yml`  
-
-
 Deploying as a docker app to cf
 -------------------------------
 
 Update the vars.yml file with your deployment specific values.  
 `cf push -f ./manifest-docker.yml --vars-file ./vars.yml`
 
-Note: be sure to add 
-`    username: <docker_username>` 
-under docker section and export CF_DOCKER_PASSWORD environment variable.
+Note: be sure to export CF_DOCKER_PASSWORD environment variable.

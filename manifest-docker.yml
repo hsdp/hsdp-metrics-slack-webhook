@@ -1,7 +1,7 @@
 ---
 defaults: &defaults
   disk_quota: 512M
-  memory: 64M
+  memory: 128M
   health-check-type: http
   health-check-http-endpoint: /healthcheck
 
@@ -11,5 +11,6 @@ applications:
   instances: ((instances))
   docker:
     image: ((docker_image))
+    username: ((docker_username))
   env:
     SLACK_WEBHOOK: ((slack_webhook))
