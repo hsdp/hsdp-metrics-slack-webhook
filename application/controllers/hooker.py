@@ -15,14 +15,25 @@ def hook_to_hook():
     slack_webhook = current_app.config['SLACK_WEBHOOK']
     for alert in request.json['alerts']:
         message = []
-        message = []
-        message.append('*Application name:*\n')
-        message.append(alert['labels']['application'] + '\n' + '\n')
-        message.append('*Status:*\n')
-        message.append(alert['status'] + '\n' + '\n')
-        message.append('*Message:*\n')
+        if 'application' in alert['labels']:
+            message.append('*Application name:*')
+            message.append(alert['labels']['application'] + '\n' + '\n')
+        if 'hsdp_instance_name' in alert['labels']:
+            message.append('*Service name:*')
+            message.append(alert['labels']['hsdp_instance_name'] + '\n' + '\n')
+        if alert['status'] == 'resolved':
+            status = '*resolved*'
+        if alert['status'] == 'firing':
+            status = '*opened*'
+        message.append('*Message:*')
         message.append( alert['annotations']['description'])
-        slack_payload = {'text': '\n'.join(message)}
+        slack_payload = {"text": "*Incident* " + status + "\n",
+                         "attachments": [
+                            {
+                              "text": '\n'.join(message)
+                            }
+                          ]
+                         }
         response = requests.post(slack_webhook, json=slack_payload)
         if not response.ok:
             response.raise_for_status()
