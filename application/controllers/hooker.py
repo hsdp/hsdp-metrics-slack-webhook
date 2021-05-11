@@ -20,7 +20,7 @@ def hook_to_hook():
         message.append(alert['labels']['application'] + '\n' + '\n')
         message.append('*Status:*\n')
         message.append(alert['status'] + '\n' + '\n')
-        message.append(' '.join(['*Message:*\n')
+        message.append('*Message:*\n')
         message.append( alert['annotations']['description'])
         slack_payload = {'text': '\n'.join(message)}
         response = requests.post(slack_webhook, json=slack_payload)
