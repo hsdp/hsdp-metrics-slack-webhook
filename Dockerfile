@@ -7,6 +7,6 @@ RUN /sbin/apk update && \
       /usr/local/bin/pip3 install -r /tmp/requirements.txt && \
       /sbin/apk del build-deps && \
       /bin/rm -rf /var/cache/apk/*
-EXPOSE 8000 
+EXPOSE 8080 
 STOPSIGNAL SIGINT
 ENTRYPOINT /entrypoint.sh
